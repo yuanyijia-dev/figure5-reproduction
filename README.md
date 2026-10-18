@@ -65,6 +65,14 @@ var.feature_name : 基因符号
 adata.raw        : 原始计数矩阵
 ```
 
+数据（约 350 MB）可从 [CELLxGENE Discover](https://cellxgene.cziscience.com/collections/31937775-0602-4e52-a799-b6acdd2bac2e)
+获取（原文数据与代码存档：GEO [GSE207848](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207848)）。
+下载后放到 `data/`，然后：
+
+```bash
+python reproduce_figure5.py --input data/<your_file>.h5ad
+```
+
 ---
 
 ## 作者原始代码
