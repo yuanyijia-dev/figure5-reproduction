@@ -22,7 +22,9 @@ Figure 5A / 5B / 5D 复现 —— 单文件最终版
         adata_astro[adata_astro.obs.age=='4wk'].obs.activate_astro)
 
 用法:
-    python reproduce_figure5.py --input /path/to/data.h5ad
+    python reproduce_figure5.py
+输入:
+    C:\\Users\\yyj\\Downloads\\c93d78c2-ee17-4504-8d1c-17cf093ad7b5.h5ad
 输出:
     ./figure5_out/5A_activation_violin.png
     ./figure5_out/5B_cluster_violin.png
@@ -32,7 +34,6 @@ Figure 5A / 5B / 5D 复现 —— 单文件最终版
 ================================================================================
 """
 import os
-import argparse
 import numpy as np
 import pandas as pd
 import anndata as ad
@@ -44,24 +45,8 @@ import seaborn as sns
 from matplotlib.lines import Line2D
 
 # ============================== 路径配置 ==============================
-# 默认数据路径（可被 --input 覆盖）
-DEFAULT_IN = r"C:\Users\yyj\Downloads\c93d78c2-ee17-4504-8d1c-17cf093ad7b5.h5ad"
-
-
-def parse_args():
-    ap = argparse.ArgumentParser(
-        description="复现 Allen et al. Cell 2022 Figure 5A/5B/5D")
-    ap.add_argument("--input", "-i", default=DEFAULT_IN,
-                    help="输入 .h5ad 文件路径")
-    ap.add_argument("--outdir", "-o", default=None,
-                    help="输出目录（默认 ./figure5_out）")
-    return ap.parse_args()
-
-
-ARGS = parse_args()
-IN = ARGS.input
-OUT = ARGS.outdir or os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "figure5_out")
+IN = r"C:\Users\yyj\Downloads\c93d78c2-ee17-4504-8d1c-17cf093ad7b5.h5ad"
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "figure5_out")
 os.makedirs(OUT, exist_ok=True)
 
 # ============================== 基因集（作者原文）==============================
